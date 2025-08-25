@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portal Demo</title>
+  <style>
+    /* General Reset */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    /* Login Page */
+    .login-page {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .login-container h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-container input {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #007bff;
+      color: black;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Dashboard Page */
+    .dashboard-page {
+      display: none;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .dashboard {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Section -->
+  <div class="login-page" id="loginPage">
+    <div class="login-container">
+      <h1>Student Portal</h1>
+      <form id="loginForm">
+        <input type="text" placeholder="Student ID" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard Section -->
+  <div class="dashboard-page" id="dashboardPage">
+    <header>
+      <h1>Welcome, Student</h1>
+      <p>Your personalized dashboard</p>
+    </header>
+
+    <main class="dashboard">
+      <section class="card">
+        <h2>Enrolled Courses</h2>
+        <ul>
+          <li>Supervised Machine learning</li>
+          <li>Un Supervised Machine learningi</li>
+          <li>Python for Data Science</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Upcoming Assignments</h2>
+        <ul>
+          <li>Cloud computing</li>
+          <li>Web scrapping</li>
+          <li>PHP</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Simple form handling to switch to dashboard
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      document.getElementById('loginPage').style.display = 'none';
+      document.getElementById('dashboardPage').style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
+
